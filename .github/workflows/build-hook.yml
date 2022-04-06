@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@11ba7d3f32dc7cc919d1c43f1fec1c05260c26b5
+        uses: KaterynaKupava/copy-of-repository-dispatch@v1
         with:
           token: ${{ secrets.FOR_REPOSITORY_DISPATCH }}
           repository: KaterynaKupava/Test-for-Githubactions
