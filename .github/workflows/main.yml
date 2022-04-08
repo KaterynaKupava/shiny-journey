@@ -17,5 +17,5 @@ jobs:
     - name: Build the Docker image
       run: |
            docker login -u katerynalymar -p ${{ secrets.DOCKER_LOGIN }}
-           docker build -t katerynalymar/katerepo:$(date +%s)
+           docker build -t katerynalymar/katerepo:1
            docker push katerynalymar/katerepo:tagname
