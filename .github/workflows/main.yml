@@ -13,7 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    
+    - name: Docker Login
+       # You may pin to the exact commit or the version.
+        # uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7
+      uses: docker/login-action@v1.14.1
+      with:
+          # Server address of Docker registry. If not set then will default to Docker Hub
+          registry: https://hub.docker.com/r/katerynalymar/katerepo
+          # Username used to log against the Docker registry
+          username: katerynalymar
+          # Password or personal access token used to log against the Docker registry
+          password: ${{ github.DOCKER_LOGIN }}
+          # Specifies whether the given registry is ECR (auto, true or false)
+          logout: false
+    
+
     - name: Build and push Docker images
       # You may pin to the exact commit or the version.
       # uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
@@ -22,7 +37,7 @@ jobs:
         # Path to the Dockerfile
         #file: # optional
         # Push is a shorthand for --output=type=registry
-        push: katerynalymar/katerepo
+        push: true
 
         # List of tags
         tags: 12
