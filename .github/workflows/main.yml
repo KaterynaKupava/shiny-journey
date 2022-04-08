@@ -16,6 +16,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-           docker build . --file katerepo --tag katerepo:$(date +%s)
            docker login -u katerynalymar -p ${{ secrets.DOCKER_LOGIN }}
+           docker build -t katerynalymar/katerepo:$(date +%s)
            docker push katerynalymar/katerepo:tagname
